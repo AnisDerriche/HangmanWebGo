@@ -95,10 +95,11 @@ button:hover {
     max-width: 400px;
 }
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
-#imageIndex{
-    display: flex;
-    justify-content: center;
+#Index{
+    background-image: url("Image/TEAM FORTRESS 2 photoIndex.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 #bouton{
     display: flex;
