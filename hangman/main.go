@@ -8,52 +8,77 @@ import (
 	"strings"
 )
 
+type GameState struct {
+	Word              string
+	MaskedWord        []string
+	RemainingAttempts int
+	Ascii             string
+}
+
 func main() {
-	mot := ""
-	motcacher := []string{}
-	nbessais := 0
+	var statusjeu GameState
+	var err error
 	lutil := []string{}
-	if len(os.Args) > 1 {
-		fmt.Print("trop d'arguments")
-		return
-	}
 	position := gettxt("hangman")
+	lettreascii := []string{}
 	d := 0
+	a := 0
+	ascii := ' '
+	if len(os.Args) > 1 {
+		if os.Args[1] == "save" {
+			statusjeu, err = chargeJeu()
+			if err != nil {
+				fmt.Print("Erreur avec la sauvegarde")
+				return
+			}
+			d++
+			a++
+			if statusjeu.Ascii == "maj" {
+				lettreascii = gettxt("maj")
+				ascii = 'M'
+			} else if statusjeu.Ascii == "min" {
+				lettreascii = gettxt("min")
+				ascii = 'm'
+			} else {
+				ascii = 'n'
+			}
+		} else {
+			fmt.Print("Trop d'arguments ou arguments invalide !")
+			return
+		}
+	}
 	difficulté := ' '
 	for d == 0 {
 		fmt.Print("Choisir une difficulté :")
 		fmt.Scanf("%c\n", &difficulté)
 		if difficulté == 'f' {
 			d++
-			mot = choimot("facile.txt")
-			motcacher = motcache(mot)
-			nbrand := (len(mot) / 2) - 1
+			statusjeu.Word = choimot("facile.txt")
+			statusjeu.MaskedWord = motcache(statusjeu.Word)
+			nbrand := (len(statusjeu.Word) / 2) - 1
 			for nbrand != 0 {
-				n := rand.IntN(len(mot) - 1)
-				if motcacher[n] == "_" {
-					motcacher[n] = ToUpper(string(mot[n]))
+				n := rand.IntN(len(statusjeu.Word) - 1)
+				if statusjeu.MaskedWord[n] == "_" {
+					statusjeu.MaskedWord[n] = ToUpper(string(statusjeu.Word[n]))
 					nbrand--
 				}
 			}
-			nbessais = 10
+			statusjeu.RemainingAttempts = 10
 		} else if difficulté == 'm' {
 			d++
-			mot = choimot("moyen.txt")
-			motcacher = motcache(mot)
-			motcacher[0] = ToUpper(string(mot[0]))
-			nbessais = 8
+			statusjeu.Word = choimot("moyen.txt")
+			statusjeu.MaskedWord = motcache(statusjeu.Word)
+			statusjeu.MaskedWord[0] = ToUpper(string(statusjeu.Word[0]))
+			statusjeu.RemainingAttempts = 8
 		} else if difficulté == 'd' {
 			d++
-			mot = choimot("difficile.txt")
-			motcacher = motcache(mot)
-			nbessais = 5
+			statusjeu.Word = choimot("difficile.txt")
+			statusjeu.MaskedWord = motcache(statusjeu.Word)
+			statusjeu.RemainingAttempts = 5
 		} else {
 			fmt.Print("Caractère invalide\n")
 		}
 	}
-	lettreascii := []string{"0"}
-	a := 0
-	ascii := ' '
 	for a == 0 {
 		fmt.Print("Jouer en ascii ? : ")
 		fmt.Scanf("%c\n", &ascii)
@@ -67,9 +92,11 @@ func main() {
 				if ascii == 'M' {
 					a++
 					lettreascii = gettxt("maj")
+					statusjeu.Ascii = "maj"
 				} else if ascii == 'm' {
 					a = 3
 					lettreascii = gettxt("min")
+					statusjeu.Ascii = "min"
 				} else {
 					fmt.Print("Caractère invalide\n")
 				}
@@ -78,11 +105,12 @@ func main() {
 			fmt.Print("Caractère invalide\n")
 		}
 	}
-	fmt.Printf("\n \n Tu as %d essais pour trouver le bon mot\n", nbessais)
+
+	fmt.Printf("\n \n Tu as %d essais pour trouver le bon mot\n", statusjeu.RemainingAttempts)
 	fmt.Print("\t \tBonne chance\n \n")
-	affichemot(motcacher, lettreascii, ascii)
-	for nbessais != 0 {
-		if MotFini(motcacher) {
+	affichemot(statusjeu.MaskedWord, lettreascii, ascii)
+	for statusjeu.RemainingAttempts != 0 {
+		if MotFini(statusjeu.MaskedWord) {
 			break
 		}
 		danslemot := 0
@@ -94,21 +122,22 @@ func main() {
 			continue
 		}
 		if l == "STOP" {
+			sauvegarde(statusjeu)
 			return
 		}
 		if len(l) > 1 {
-			if l == mot {
+			if l == statusjeu.Word {
 				break
 			} else {
-				if nbessais == 1 {
-					nbessais--
+				if statusjeu.RemainingAttempts == 1 {
+					statusjeu.RemainingAttempts--
 				} else {
-					nbessais -= 2
+					statusjeu.RemainingAttempts -= 2
 				}
-				if nbessais != 0 {
-					fmt.Printf("Il te reste %d essais pour trouver le bon mot\n", nbessais)
-					fmt.Print(string(position[10-nbessais-1]) + "\n")
-					affichemot(motcacher, lettreascii, ascii)
+				if statusjeu.RemainingAttempts != 0 {
+					fmt.Printf("Il te reste %d essais pour trouver le bon mot\n", statusjeu.RemainingAttempts)
+					fmt.Print(string(position[10-statusjeu.RemainingAttempts-1]) + "\n")
+					affichemot(statusjeu.MaskedWord, lettreascii, ascii)
 					continue
 				}
 			}
@@ -118,40 +147,40 @@ func main() {
 			continue
 		}
 		lutil = append(lutil, l)
-		for i := 0; i < len(mot); i++ {
-			if string(mot[i]) == l && string(motcacher[i]) == "_" {
-				motcacher[i] = ToUpper(l)
+		for i := 0; i < len(statusjeu.Word); i++ {
+			if string(statusjeu.Word[i]) == l && string(statusjeu.MaskedWord[i]) == "_" {
+				statusjeu.MaskedWord[i] = ToUpper(l)
 				danslemot++
 			}
 		}
-		if !InTab(motcacher, "_") {
+		if !InTab(statusjeu.MaskedWord, "_") {
 			continue
 		} else if danslemot == 0 {
-			nbessais--
+			statusjeu.RemainingAttempts--
 		}
-		if nbessais == 0 {
+		if statusjeu.RemainingAttempts == 0 {
 			continue
 		} else {
-			if nbessais != 10 {
-				fmt.Print(string(position[10-nbessais-1]) + "\n")
+			if statusjeu.RemainingAttempts != 10 {
+				fmt.Print(string(position[10-statusjeu.RemainingAttempts-1]) + "\n")
 			}
-			fmt.Printf("Il te reste %d essais pour trouver le bon mot\n", nbessais)
-			affichemot(motcacher, lettreascii, ascii)
+			fmt.Printf("Il te reste %d essais pour trouver le bon mot\n", statusjeu.RemainingAttempts)
+			affichemot(statusjeu.MaskedWord, lettreascii, ascii)
 		}
 	}
-	if nbessais == 0 {
+	if statusjeu.RemainingAttempts == 0 {
 		fmt.Print(string(position[9]))
 		fmt.Print("Perdu !! Le mot était\n")
-		for i := 0; i < len(mot); i++ {
-			motcacher[i] = ToUpper(string(mot[i]))
+		for i := 0; i < len(statusjeu.Word); i++ {
+			statusjeu.MaskedWord[i] = ToUpper(string(statusjeu.Word[i]))
 		}
-		affichemot(motcacher, lettreascii, ascii)
+		affichemot(statusjeu.MaskedWord, lettreascii, ascii)
 	} else {
 		fmt.Print("bravo vous avez trouvez le mot cacher\n")
-		for i := 0; i < len(mot); i++ {
-			motcacher[i] = ToUpper(string(mot[i]))
+		for i := 0; i < len(statusjeu.Word); i++ {
+			statusjeu.MaskedWord[i] = ToUpper(string(statusjeu.Word[i]))
 		}
-		affichemot(motcacher, lettreascii, ascii)
+		affichemot(statusjeu.MaskedWord, lettreascii, ascii)
 	}
 }
 
@@ -210,7 +239,7 @@ func InTab(tab []string, lettre string) bool {
 }
 
 func affichemot(mot []string, tabascii []string, ascii rune) {
-	if tabascii[0] == "0" {
+	if ascii == 'n' {
 		affichemotnormal(mot)
 	} else {
 		affichasciimot(tabascii, mot, ascii)
@@ -284,4 +313,60 @@ func gettxt(taille string) []string {
 	}
 	fichier.Close()
 	return tab
+}
+
+func sauvegarde(state GameState) error {
+	fichier, err := os.Create("save.txt")
+	if err != nil {
+		return err
+	}
+	defer fichier.Close()
+
+	_, err = fichier.WriteString(fmt.Sprintf("%s\n%s\n%d\n%s\n", state.Word, convertmotenstr(state.MaskedWord), state.RemainingAttempts, state.Ascii))
+	if err != nil {
+		return err
+	}
+	fmt.Println("Partie sauvegardée dans save.txt.")
+	return nil
+}
+
+func chargeJeu() (GameState, error) {
+	fichier, err := os.Open("save.txt")
+	if err != nil {
+		return GameState{}, err
+	}
+	defer fichier.Close()
+
+	var state GameState
+	scanner := bufio.NewScanner(fichier)
+
+	if scanner.Scan() {
+		state.Word = scanner.Text()
+	}
+	if scanner.Scan() {
+		state.MaskedWord = convertmotentab(scanner.Text())
+	}
+	if scanner.Scan() {
+		fmt.Sscanf(scanner.Text(), "%d", &state.RemainingAttempts)
+	}
+	if scanner.Scan() {
+		state.Ascii = scanner.Text()
+	}
+	return state, nil
+}
+
+func convertmotentab(mot string) []string {
+	motf := []string{}
+	for _, i := range mot {
+		motf = append(motf, string(i))
+	}
+	return motf
+}
+
+func convertmotenstr(mot []string) string {
+	motf := ""
+	for _, i := range mot {
+		motf += i
+	}
+	return motf
 }
