@@ -98,9 +98,10 @@ button:hover {
 #imageIndex{
     display: flex;
     justify-content: center;
+    background-attachment: fixed;
 }
 #bouton{
     display: flex;
-    justify-content: center;
-    vertical-align: 80% ;
+    align-items: center;
+    width: 8%;
 }   
