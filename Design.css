@@ -10,14 +10,15 @@ body {
 
 .bouton {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #a0520e;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     display: inline-block;
+    margin : 0 auto;
   }
   .bouton:hover {
-    background-color: #45a049;
+    background-color: #060606;
   }
 
 /* Styles pour les titres */
@@ -102,5 +103,6 @@ button:hover {
 #bouton{
     display: flex;
     justify-content: center;
+    align-items: center;
     vertical-align: 80% ;
-}   
+}
