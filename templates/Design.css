@@ -49,43 +49,32 @@ a.bouton{
     font-family: 'Poppins';
 
 }
-
+/* Bandeau de navigation */
 .header{
     height: 100vh;
     width: 100vw;
-    background-image: url("image/TEAM\ FORTRESS\ 2\ photoIndex.png");
+    background-image: url("../static/Image/TF2.png");
     background-size: cover;
 }
 
-
-/* Bandeau de navigation */
 .navbar {
+    position: absolute;
+    padding: 50px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
     align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
 }
 
-/* Liens de navigation */
-.nav-links {
-    list-style-type: none;
-    display: flex;
-    margin: center;
-    padding: ;
+.navbar a{
+    color: chocolate;
 }
 
-.nav-links li {
-    margin-left: 20px;
+.navbar .nav-link ul {
+    display : flex
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: rgb(164, 86, 22);
-    font-size: 2rem;
-}
-
-.nav-links a:hover {
-    color: #00bcd4;
+.navbar .nav-link ul li {
+    margin: 0 25px;
 }
