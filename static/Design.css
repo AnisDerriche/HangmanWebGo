@@ -53,3 +53,7 @@ a.bouton{
 .navbar .nav-link ul li {
     margin: 0 25px;
 }
+
+.navbar .nav-link ul.active {
+    margin: 0 25px;
+}
