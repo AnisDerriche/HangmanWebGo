@@ -1,9 +1,10 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
 #Index{
-    background-image: url('../static/Image/TF2.png');
+    background-image: url('../static/Image/TF2-title.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+
 }
 a.bouton{
     display: flex;
