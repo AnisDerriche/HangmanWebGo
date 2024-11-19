@@ -1,44 +1,3 @@
-/* Styles généraux */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-/* Styles pour les titres */
-h1, h2, h3 {
-    color: #333;
-    margin-top: 0;
-}
-
-h1 {
-    font-size: 2.5em;
-}
-
-h2 {
-    font-size: 2em;
-}
-
-h3 {
-    font-size: 1.75em;
-}
-
-/* Styles pour les paragraphes */
-p {
-    margin: 10px 0;
-}
-
-/* Style pour les liens */
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #2980b9;
-}
-
-
 /* Classe personnalisée pour des sections */
 .section {
     background-color: #fff;
@@ -65,8 +24,8 @@ a:hover {
     max-width: 400px;
 }
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
-#Index{
-    background-image: url("Image/TEAM FORTRESS 2 photoIndex.png");
+.Index{
+    background-image: url('../static/Image/TF2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
