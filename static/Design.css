@@ -77,4 +77,56 @@ a.bouton{
     margin-left: 42%;
     margin-top: 40%;
     size: 4px;
-}   
+}
+/* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
+*{
+    margin : 0;
+    padding : 0;
+    text-decoration: None;
+    list-style: None;
+}
+
+#jeuxpage{
+    font-family: 'Poppins';
+
+}
+
+.header{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("image/TEAM\ FORTRESS\ 2\ photoIndex.png");
+    background-size: cover;
+}
+
+
+/* Bandeau de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Liens de navigation */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: center;
+    padding: ;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(164, 86, 22);
+    font-size: 2rem;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
