@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
-.Index{
-    background-image: url('../static/Image/cour_OSI.jpg');
+#Index{
+    background-image: url('../static/Image/TF2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
