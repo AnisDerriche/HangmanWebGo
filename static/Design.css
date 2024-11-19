@@ -14,47 +14,36 @@ a.bouton{
     size: 4px;
 }
 /* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
-*{
-    margin : 0;
-    padding : 0;
-    text-decoration: None;
-    list-style: None;
-}
-
-#jeuxpage{
-    font-family: 'Poppins';
-
-}
-/* Bandeau de navigation */
-.header{
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../static/Image/TF2.png');
-    background-size: cover;
-}
-
 .navbar {
-    position: absolute;
-    padding: 50px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: black;
+}
+
+.navbar * {
     box-sizing: border-box;
-    align-items: center;
+    transition: all 0.35s ease;
 }
 
-.navbar a{
-    color: chocolate;
+.navbar li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 1.5em;
+    overflow: hidden;
 }
 
-.navbar .nav-link ul {
-    display : flex
+.navbar a {
+    padding: 0.3em 0;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    margin: 0;
+    text-decoration: none;
 }
 
-.navbar .nav-link ul li {
-    margin: 0 25px;
-}
-
-.navbar .nav-link ul.active {
-    margin: 0 25px;
+.navbar li:hover a{
+    color: white;
 }
