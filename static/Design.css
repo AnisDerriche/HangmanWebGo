@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
 .Index{
-    background-image: url('../static/Image/TF2.png');
+    background-image: url('../static/Image/cour_OSI.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -28,7 +28,7 @@ a.bouton{
 .header{
     height: 100vh;
     width: 100vw;
-    background-image: url("../static/Image/TF2.png");
+    background-image: url('../static/Image/TF2.png');
     background-size: cover;
 }
 
