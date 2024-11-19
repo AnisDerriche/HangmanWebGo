@@ -91,7 +91,7 @@ a.bouton{
     padding: 10px 20px;
     background-color: #333;
     color: white;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
