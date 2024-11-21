@@ -14,33 +14,38 @@ a.bouton{
     size: 4px;
 }
 /* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
-#jeuxpage{
+#page2_jeuxpage{
     background-color: chocolate;
     margin: 0;
     padding: 0;
 }
 
-.navbar {
+.page2_navbar {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
-    background-color: black;
+    background-color: #333;
+    margin-top: 0;
+    height: 50px;
+    top: 0;
+    left: 0;
 }
 
-.navbar * {
+.page2_navbar * {
     box-sizing: border-box;
     transition: all 0.35s ease;
 }
 
-.navbar li {
+.page2_navbar li {
+    padding-top: 10px;
     display: inline-block;
     list-style: outside none none;
     margin: 0 1.5em;
     overflow: hidden;
 }
 
-.navbar a {
+.page2_navbar a {
     padding: 0.3em 0;
     color: rgba(255, 255, 255, 0.5);
     position: relative;
@@ -50,12 +55,12 @@ a.bouton{
     text-decoration: none;
 }
 
-.navbar li:hover a{
+.page2_navbar li:hover a{
     color: white;
 }
 
 /* Contenu principal */
-.content {
+.page2_content {
     display: grid;
     grid-template-areas:
         "section1 section2 section3"
@@ -65,7 +70,15 @@ a.bouton{
     padding: 20px;
 }
 
-.box {
+.page2_content > div {
+    box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
+}
+
+#page2_section2{
+    height:
+}
+
+.page2_box {
     background-color: white;
     padding: 20px;
     border: 1px solid #ddd;
@@ -75,25 +88,25 @@ a.bouton{
 }
 
 /* Assignation des zones de la grille */
-#section1 {
+#page2_section1 {
     grid-area: section1;
     height: 470px;
 }
 
-#section2 {
+#page2_section2 {
     grid-area: section2;
 }
 
-#section3 {
+#page2_section3 {
     grid-area: section3;
 }
 
-#section4 {
+#page2_section4 {
     grid-area: section4;
 }
 
 /* Pied de page */
-.footer {
+.page2_footer {
     text-align: center;
     padding: 10px 20px;
     background-color: #333;
