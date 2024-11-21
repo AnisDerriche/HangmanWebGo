@@ -1,97 +1,46 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
-#Index{
+#P1_Index{
     background-image: url('../static/Image/TF2-title.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 
 }
-a.bouton{
+
+footer#P1_footer a.P1_bouton{
     display: flex;
     text-align: center;
+    padding-left: 40%;
+}
+
+body#P1_Index div{
+    display: inline-block ;
+}
+
+body#P1_Index div.P1_gauche{
+    /* background-color: #ddd; */
+    width: 40%;
+    padding-right: 8%;
+}
+body#P1_Index div.P1_droite{
+    /* background-color:white ; */
+    padding-left: 8%;
+    width: 40%;
+}
+body#P1_Index div.P1_gauche img{
+    display:grid;
+    margin-left: 31%;
+    margin-top: 10px;
+}
+
+body#P1_Index div.P1_droite img{
+    display:grid;
     margin-left: 42%;
-    margin-top: 40%;
-    size: 4px;
-}
-/* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
-.navbar {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 500;
-    background-color: black;
+    margin-top: 10px;
 }
 
-.navbar * {
-    box-sizing: border-box;
-    transition: all 0.35s ease;
-}
-
-.navbar li {
-    display: inline-block;
-    list-style: outside none none;
-    margin: 0 1.5em;
-    overflow: hidden;
-}
-
-.navbar a {
-    padding: 0.3em 0;
-    color: rgba(255, 255, 255, 0.5);
-    position: relative;
-    display: inline-block;
-    letter-spacing: 1px;
-    margin: 0;
-    text-decoration: none;
-}
-
-.navbar li:hover a{
-    color: white;
-}
-
-/* Contenu principal */
-.content {
-    display: grid;
-    grid-template-areas:
-        "section1 section2 section3"
-        "section1 section4 section3";
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 20px;
-    padding: 20px;
-}
-
-.box {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Assignation des zones de la grille */
-#section1 {
-    grid-area: section1;
-}
-
-#section2 {
-    grid-area: section2;
-}
-
-#section3 {
-    grid-area: section3;
-}
-
-#section4 {
-    grid-area: section4;
-}
-
-/* Pied de page */
-.footer {
-    text-align: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+header#P1_header{
+    /* background-color: #333; */
+    margin-bottom: 50px;
+    margin-left: 100px;
 }
