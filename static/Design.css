@@ -1,16 +1,16 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
 #P1_Index{
-    background-image: url('../static/Image/TF2-title.jpg');
+    background-image:url("Image/tf2-background.jpg") ;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment:scroll;
     background-size: cover;
 
 }
 
-footer#P1_footer a.P1_bouton{
-    display: flex;
-    text-align: center;
-    padding-left: 40%;
+header#P1_header{
+    /* background-color: #333; */
+    margin-bottom: 50px;
+    margin-left: 100px;
 }
 
 body#P1_Index div{
@@ -39,10 +39,12 @@ body#P1_Index div.P1_droite img{
     margin-top: 10px;
 }
 
-header#P1_header{
-    /* background-color: #333; */
-    margin-bottom: 50px;
-    margin-left: 100px;
+body#P1_Index div.P1_bouton{
+    position: absolute;
+    background-color: #333;
+    z-index: 1;
+    left: 39%;
+    top: 70%;
 }
 
 #page2_jeuxpage{
