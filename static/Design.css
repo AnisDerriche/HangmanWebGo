@@ -78,6 +78,23 @@ a.bouton{
     height:
 }
 
+.input-container {
+    display: flex;
+    gap: 10px;
+    display: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+  }
+.page2_box .textcenter {
+    text-align: center;
+}
+
 .page2_box {
     background-color: white;
     padding: 20px;
