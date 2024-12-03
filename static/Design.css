@@ -45,6 +45,8 @@ header#P1_header{
     margin-left: 100px;
 }
 
+
+/*--------------------------------------------------------------Page 2---------------------------------------------------------------------------*/
 #page2_jeuxpage{
     background-color: chocolate;
     margin: 0;
@@ -103,10 +105,6 @@ header#P1_header{
 
 .page2_content > div {
     box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
-}
-
-#page2_section2{
-    height:
 }
 
 .page2_box {
