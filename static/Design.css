@@ -47,6 +47,8 @@ body#P1_Index div.P1_bouton{
     top: 70%;
 }
 
+
+/*--------------------------------------------------------------Page 2---------------------------------------------------------------------------*/
 #page2_jeuxpage{
     background-color: chocolate;
     margin: 0;
@@ -105,10 +107,6 @@ body#P1_Index div.P1_bouton{
 
 .page2_content > div {
     box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
-}
-
-#page2_section2{
-    height:
 }
 
 .page2_box {
