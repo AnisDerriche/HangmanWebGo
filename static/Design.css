@@ -63,7 +63,7 @@ a.bouton{
 .page2_content {
     display: grid;
     grid-template-areas:
-        "section1 section2 section3"
+        "section1 section4 section3"
         "section1 section4 section3";
     grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
@@ -74,15 +74,11 @@ a.bouton{
     box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
 }
 
-#page2_section2{
-    height:
-}
-
 .input-container {
     display: flex;
     gap: 10px;
     display: center;
-  }
+}
   
   input[type="text"] {
     padding: 10px;
@@ -90,9 +86,13 @@ a.bouton{
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 300px;
-  }
-.page2_box .textcenter {
-    text-align: center;
+}
+
+.page2_section4 .textcenter {
+    place-items: center;
+    justify-items: center;
+    position: fixed;
+    bottom: 0;
 }
 
 .page2_box {
@@ -120,6 +120,7 @@ a.bouton{
 
 #page2_section4 {
     grid-area: section4;
+    
 }
 
 /* Pied de page */
