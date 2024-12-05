@@ -61,11 +61,7 @@ a.bouton{
 
 /* Contenu principal */
 .page2_content {
-    display: grid;
-    grid-template-areas:
-        "section1 section4 section3"
-        "section1 section4 section3";
-    grid-template-columns: 1fr 2fr 1fr;
+    display: flex;
     gap: 20px;
     padding: 20px;
 }
@@ -77,7 +73,8 @@ a.bouton{
 .input-container {
     display: flex;
     gap: 10px;
-    display: center;
+    align-items: end;
+    padding-inline: 80px;
 }
   
   input[type="text"] {
@@ -88,11 +85,13 @@ a.bouton{
     width: 300px;
 }
 
-.page2_section4 .textcenter {
-    place-items: center;
-    justify-items: center;
-    position: fixed;
-    bottom: 0;
+.textcenter {
+    display: flex;
+}
+
+#valider{ 
+    margin-bottom: 3px;
+    padding: 7px;
 }
 
 .page2_box {
@@ -106,21 +105,17 @@ a.bouton{
 
 /* Assignation des zones de la grille */
 #page2_section1 {
-    grid-area: section1;
     height: 470px;
-}
-
-#page2_section2 {
-    grid-area: section2;
+    width: 300px;
 }
 
 #page2_section3 {
-    grid-area: section3;
+    display: flex;
+    width: 550px;
 }
 
 #page2_section4 {
-    grid-area: section4;
-    
+    width: 550px;
 }
 
 /* Pied de page */
