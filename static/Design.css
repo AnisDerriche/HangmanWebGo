@@ -39,6 +39,11 @@ body#P1_Index div.P1_droite img{
     margin-top: 10px;
 }
 
+header#P1_header{
+    /* background-color: #333; */
+    margin-bottom: 50px;
+    margin-left: 100px;
+}
 body#P1_Index div.P1_bouton{
     position: absolute;
     z-index: 1;
