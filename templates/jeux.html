@@ -8,12 +8,34 @@
     <body id="page2_jeuxpage">
         <ul class="page2_navbar">
             <li><a href="Index.html" data-hover="Accueil">Accueil</a></li>
-            <li><a href="regles.html" data-hover="Règles">Règles</a></li>
+            <li><a class="bouton" onclick="showpopup('regles')">Règles</a></li>
         </ul>
+        <div class="'popup" id='regles'>
+            <h2>Régles du jeu :</h2>
+            <ul>
+                <li>Vous devez Trouvez le mots dans un nombre d'erreur limiter</li>
+                <li>Vous pouvez choisir le niveau de difficulté au début de la game</li>
+                <li></li>
+            </ul>
+            Bo
+            <a class="popup" onclick="closup">Fermer</a>
+        </div>
+        <script>
+            function showPopup(arg) {
+                const popup = document.getElementById(arg);
+                popup.style.display = 'block';
+            }
+        
+            function closePopup(arg) {
+                const popup = document.getElementById(arg);
+                popup.style.display = 'none';
+            }
+        </script>
+
         <main class="page2_content">
             <div id="page2_section1" class="page2_box">
                 <h3 id="nbess">Nombre d'essais restant :</h3>
-                <div class="lettreut"><h1>balabla</h1></div>
+                <div class="lettreut">balabla</div>
             </div>
             <div id="page2_section3" class="page2_box">
                 <div class="textcenter">

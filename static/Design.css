@@ -90,6 +90,8 @@ a.bouton{
     border: 2px solid black;
     width: auto;
     height: 200px;
+    line-height: 1;
+    font-size: 50px;
 }
 
 .textcenter {
