@@ -4,7 +4,6 @@
     background-repeat: no-repeat;
     background-attachment:scroll;
     background-size: cover;
-
 }
 
 header#P1_header{
@@ -21,6 +20,7 @@ body#P1_Index div.P1_gauche{
     /* background-color: #ddd; */
     width: 40%;
     padding-right: 8%;
+    align-items: center ;
 }
 body#P1_Index div.P1_droite{
     /* background-color:white ; */
@@ -42,8 +42,22 @@ body#P1_Index div.P1_droite img{
 body#P1_Index div.P1_bouton{
     position: absolute;
     z-index: 1;
-    left: 39%;
+    left: 43%;
+    top: 80%;
+}
+div.instal div.steam a {
+    text-decoration:none
+}
+div.instal div.steam{
+    position: absolute;
+    z-index: 1;
+    left: 40%;
     top: 60%;
+    background: linear-gradient(to right, #0077ff, #00ffff);
+    font-size: 30px;
+    border-radius: 10px; /* Arrondir les coins */
+    box-shadow: 0 12px 12px rgba(0, 0, 0.4, 0.2); /* Ajouter une ombre */
+    padding: 10px;
 }
 
 
