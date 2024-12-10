@@ -1,0 +1,140 @@
+/* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
+#Index{
+    background-image: url('../static/Image/TF2-title.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+a.bouton{
+    display: flex;
+    text-align: center;
+    margin-left: 42%;
+    margin-top: 40%;
+    size: 4px;
+}
+/* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
+#page2_jeuxpage{
+    background-color: chocolate;
+    margin: 0;
+    padding: 0;
+}
+
+.page2_navbar {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #333;
+    margin-top: 0;
+    height: 50px;
+    top: 0;
+    left: 0;
+}
+
+.page2_navbar * {
+    box-sizing: border-box;
+    transition: all 0.35s ease;
+}
+
+.page2_navbar li {
+    padding-top: 10px;
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 1.5em;
+    overflow: hidden;
+}
+
+.page2_navbar a {
+    padding: 0.3em 0;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    margin: 0;
+    text-decoration: none;
+}
+
+.page2_navbar li:hover a{
+    color: white;
+}
+
+/* Contenu principal */
+.page2_content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.page2_content > div {
+    box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    padding-inline: 80px;
+}
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.lettreut{
+    display: flex;
+    border: 2px solid black;
+    width: auto;
+    height: 200px;
+}
+
+.textcenter {
+    display: flex;
+}
+
+#valider{ 
+    margin-bottom: 3px;
+    padding: 7px;
+}
+
+.page2_box {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Assignation des zones de la grille */
+#page2_section1 {
+    height: 470px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#page2_section3 {
+    display: flex;
+    width: 550px;
+}
+
+#page2_section4 {
+    width: 550px;
+}
+
+/* Pied de page */
+.page2_footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
