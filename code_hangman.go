@@ -8,7 +8,7 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.ParseFiles("templates/index.html"))
+	t := template.Must(template.ParseFiles("templates/Index.html"))
 	t.Execute(w, nil)
 }
 
