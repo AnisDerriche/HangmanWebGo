@@ -5,31 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HangmanWEB</title>
     </head>
-    <body id="page2_jeuxpage">
+    <body id="page_de_jeux">
         <ul class="page2_navbar">
             <li><a href="Index.html" data-hover="Accueil">Accueil</a></li>
-            <li><a href="regles.html" data-hover="Règles">Règles</a></li>
+            <li><button id="openPopup">Règles</button></li>
         </ul>
-        <div class="'popup" id='regles'>
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="rulesPopup">
             <h2>Régles du jeu :</h2>
             <ul>
-                <li>Vous devez Trouvez le mots dans un nombre d'erreur limiter</li>
+                <li>Vous devez trouvez le mots dans un nombre d'erreur limiter</li>
                 <li>Vous pouvez choisir le niveau de difficulté au début de la game</li>
-                <li></li>
             </ul>
-            Bo
-            <a class="popup" onclick="closup">Fermer</a>
+            Bon courage !
+            <br><button class="close-button" id="closePopup">Fermer</button>
         </div>
         <script>
-            function showPopup(arg) {
-                const popup = document.getElementById(arg);
+            // Références des éléments
+            const openPopupButton = document.getElementById('openPopup');
+            const closePopupButton = document.getElementById('closePopup');
+            const popup = document.getElementById('rulesPopup');
+            const overlay = document.getElementById('overlay');
+
+            // Fonction pour ouvrir le popup
+            openPopupButton.addEventListener('click', () => {
                 popup.style.display = 'block';
-            }
-        
-            function closePopup(arg) {
-                const popup = document.getElementById(arg);
+                overlay.style.display = 'block';
+            });
+
+            // Fonction pour fermer le popup
+            closePopupButton.addEventListener('click', () => {
                 popup.style.display = 'none';
-            }
+                overlay.style.display = 'none';
+            });
+
+            // Fermer le popup en cliquant sur l'overlay
+            overlay.addEventListener('click', () => {
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+            });
         </script>
 
         <main class="page2_content">
