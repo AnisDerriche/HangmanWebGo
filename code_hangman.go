@@ -20,25 +20,17 @@ func Jeux(w http.ResponseWriter, r *http.Request) {
 }
 
 func Hang(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-	case "GET":
-		fmt.Println("GET")
-	case "POST":
-		if err := r.ParseForm(); err != nil {
-			fmt.Printf("ParseForm() err: %v", err)
-			return
-		}
-	}
-	Variable = r.Form.Get("input")
-	t := template.Must(template.ParseFiles("templates/jeux.html"))
-	t.Execute(w, nil)
+	input := r.PostFormValue("input")
+	strhtml := fmt.Sprintf(" %s ", input)
+	tmpl, _ := template.New("t").Parse(strhtml)
+	tmpl.Execute(w, nil)
 }
 
 func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/jeux", Jeux)
-	http.HandleFunc("/hang", Hang)
+	http.HandleFunc("/lettre/", Hang)
 	fmt.Println("http://localhost:8000")
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head><link rel="stylesheet" href="../static/Design.css">
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/Design.css">
+        <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
         <title>HangmanWEB</title>
     </head>
     <body id="page_de_jeux">
@@ -49,12 +51,12 @@
         <main class="page2_content">
             <div id="page2_section1" class="page2_box">
                 <h3 id="nbess">Nombre d'essais restant :</h3>
-                <div class="lettreut">balabla</div>
+                <div class="lettreut" id = "tab_lettre"></div>
             </div>
             <div id="page2_section3" class="page2_box">
                 <div class="textcenter">
                     <div class="input-container">
-                        <form action ="/hang" method="post">
+                        <form hx-post = "/lettre/" hx-target = "#tab_lettre" hx-swap = "beforeend">
                             <input id="reponse" name="input" type="text" placeholder="Entrez une lettre ou votre réponse" >
                             <button id="valider" type="submit">Valider</button>
                             <p id="result"></p>
