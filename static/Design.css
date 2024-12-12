@@ -20,6 +20,7 @@ a.bouton{
     padding: 0%;
 }
 
+/*nav bar */
 .page2_navbar {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
@@ -69,7 +70,7 @@ a.bouton{
     color: white;
 }
 
-/* Styles pour la fenêtre popup */
+/*fenêtre popup */
 .popup {
     display: none;
     position: fixed;
@@ -124,11 +125,40 @@ a.bouton{
     box-shadow: 1.8px 3px 1.5px rgba(77, 42, 42, 0.205), 14px 24px 12px rgba(0, 0, 0, 0.41);
 }
 
+.page2_box {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Assignation des zones */
+#page2_section1 {
+    height: 470px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#page2_section3 {
+    display: flex;
+    width: 550px;
+}
+
+#page2_section4 {
+    width: 550px;
+}
+
+/*differente div */
 .input-container {
     display: flex;
     gap: 10px;
     align-items: end;
-    padding-inline: 80px;
+
 }
   
   input[type="text"] {
@@ -150,6 +180,9 @@ a.bouton{
 
 .textcenter {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
 }
 
 #valider{ 
@@ -157,32 +190,18 @@ a.bouton{
     padding: 7px;
 }
 
-.page2_box {
-    background-color: white;
+#mot {
+    font-size: 2em;
+    letter-spacing: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Assignation des zones de la grille */
-#page2_section1 {
-    height: 470px;
-    width: 300px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+
 }
 
-#page2_section3 {
-    display: flex;
-    width: 550px;
-}
-
-#page2_section4 {
-    width: 550px;
-}
 
 /* Pied de page */
 .page2_footer {
