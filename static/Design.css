@@ -58,7 +58,7 @@ div.instal div.steam{
     z-index: 1;
     left: 40%;
     top: 60%;
-    background: linear-gradient(to right, #0077ff, #00ffff);
+    background: linear-gradient(to right, #ff7700, #ffa200);
     font-size: 30px;
     border-radius: 10px; /* Arrondir les coins */
     box-shadow: 0 12px 12px rgba(0, 0, 0.4, 0.2); /* Ajouter une ombre */
