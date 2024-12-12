@@ -54,15 +54,17 @@
             <div id="page2_section3" class="page2_box">
                 <div class="textcenter">
                     <div class="input-container">
-                        <input type="text" placeholder="Entrez une lettre ou votre réponse" id="reponse">
-                        <button id="valider">Valider</button>
-                        <p id="'result"></p>
-                        <script>
-                            document.getElementById('valider').addEventListener('click', function() {
-                                const inputValue = document.getElementById('reponse').value;
-                                document.getElementById('result').textContent = `Vous avez saisi : ${inputValue}`;
-                            });
-                        </script>
+                        <form action ="/hang" method="post">
+                            <input id="reponse" name="input" type="text" placeholder="Entrez une lettre ou votre réponse" >
+                            <button id="valider" type="submit">Valider</button>
+                            <p id="result"></p>
+                            <script>
+                                document.getElementById('valider').addEventListener('click', function() {
+                                    const inputValue = document.getElementById('reponse').value;
+                                    document.getElementById('result').textContent = `Vous avez saisi : ${inputValue}`;
+                                });
+                            </script>
+                        </form>
                     </div>
                 </div>
             </div>
