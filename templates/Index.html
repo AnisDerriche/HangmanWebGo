@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link rel="stylesheet" href="../static/Design.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -41,8 +41,58 @@
     </div>
 
     <div class="P1_bouton">
-        <a id="imageButton" href="jeux.html" onmouseover="changeImage()"><img src="../static/Image/play_button2_400.png" id="buttonImage"></a>
+        <a class="button" id="openPopup"><img src="../static/Image/play_button2_400.png" id="buttonImage"></a>
     </div>
+    
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="rulesPopup">
+        <h2>Choisissez votre difficulté pour commencer :</h2>
+        <form method="POST" action="/jeux" id="difficultyForm">
+            <p>
+                <select name="diffi" id="diffi">
+                    <option value="facile">Facile</option>
+                    <option value="moyen" selected>Intermédiaire</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+            </p>
+            <br>
+            <button class="close-button" type="button" id="closePopup">Fermer</button>
+            <button type="button" id="loadGame">Charger une sauvegarde</button>
+            <button type="submit" id="startGame">Jouer</button>
+        </form>
+    </div>
+    <script>
+        // Références des éléments
+        const openPopupButton = document.getElementById('openPopup');
+        const closePopupButton = document.getElementById('closePopup');
+        const overlay = document.getElementById('overlay');
+        const popup = document.getElementById('rulesPopup');
+        const loadGameButton = document.getElementById('loadGame');
+    
+        // Fonction pour ouvrir le popup
+        openPopupButton.addEventListener('click', () => {
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+    
+        // Fonction pour fermer le popup
+        closePopupButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    
+        // Fonction pour charger une sauvegarde
+        loadGameButton.addEventListener('click', () => {
+            window.location.href = "/charger-sauvegarde"; // Changez l'URL en conséquence
+        });
+    
+        // Fermer le popup en cliquant sur l'overlay
+        overlay.addEventListener('click', () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    </script>
+
 </body>
 <footer id="P1_footer">
     

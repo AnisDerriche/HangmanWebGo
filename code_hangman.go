@@ -30,25 +30,36 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Jeux(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+	// Récupère la difficulté choisie
+	statusjeu.Difficulte = r.FormValue("diffi")
+	if statusjeu.Difficulte == "" {
+		statusjeu.Difficulte = "moyen" // Défaut si aucune difficulté n'est choisie
+	}
+	// Initialise le jeu
 	initializeGame()
 	if statusjeu.RemainingAttempts == 10 {
 		statusjeu.AfficheImage = "pootis.jpg"
 	} else {
 		statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
 	}
+	// Préparation des données pour le template
 	data := map[string]interface{}{
 		"MaskedWord":        strings.Join(statusjeu.MaskedWord, " "),
 		"RemainingAttempts": statusjeu.RemainingAttempts,
 		"Message":           "",
-		"GameLoose":         statusjeu.RemainingAttempts <= 0,
-		"GameWin":           MotFini(statusjeu.MaskedWord),
+		"GameLoose":         false,
+		"GameWin":           false,
 		"Word":              statusjeu.Word,
 		"ShowImage":         statusjeu.AfficheImage,
 		"LetterUse":         strings.Join(lutil, " , "),
 	}
+	// Rend la page du jeu
 	t := template.Must(template.ParseFiles("templates/jeux.html"))
 	t.Execute(w, data)
-
 }
 
 func main() {
@@ -124,7 +135,6 @@ func Hang(w http.ResponseWriter, r *http.Request) {
 
 func initializeGame() {
 	lutil = []string{}
-	statusjeu.Difficulte = "difficile"
 	statusjeu.Word = choimot(statusjeu.Difficulte + ".txt")
 	statusjeu.MaskedWord = motcache(statusjeu.Word)
 	if statusjeu.Difficulte == "facile" {
