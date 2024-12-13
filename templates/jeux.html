@@ -51,6 +51,14 @@
             <div id="page2_section1" class="page2_box">
                 <h3 id="nbess">Nombre d'essais restant :  {{ .RemainingAttempts }}</h3>
                 <div class="lettreut" id = "tab_lettre"> {{.LetterUse}}</div>
+                <br>
+                {{if .GameLoose}}
+                <img src="../static/Image/scout-tf2.gif" alt="laughting scout" width="100%">
+                {{end}}
+                {{if .GameWin}}
+                <img src="../static/Image/Conga_Spy.png" alt="conga conga conga" width="100%">
+                {{end}}
+                <br><br><br>
             </div>
             <div id="page2_section3" class="page2_box">
                 <div class="textcenter">
@@ -83,7 +91,7 @@
                 </div>
             </div>
             <div id="page2_section4" class="page2_box">
-                <br><br><br><img  src= {{.ShowImage}}  alt="pootis" width="100%">            
+                <br><img  src= ../static/Image/{{.ShowImage}}  alt="pootis" width="100%">            
             </div> 
         </main>
         <!-- Pied de page -->

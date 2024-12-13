@@ -32,9 +32,9 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func Jeux(w http.ResponseWriter, r *http.Request) {
 	initializeGame()
 	if statusjeu.RemainingAttempts == 10 {
-		statusjeu.AfficheImage = "static/Image/pootis.jpg"
+		statusjeu.AfficheImage = "pootis.jpg"
 	} else {
-		statusjeu.AfficheImage = "static/Image/pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
+		statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
 	}
 	data := map[string]interface{}{
 		"MaskedWord":        strings.Join(statusjeu.MaskedWord, " "),
@@ -89,15 +89,16 @@ func Hang(w http.ResponseWriter, r *http.Request) {
 		}
 		if !trouver {
 			statusjeu.RemainingAttempts--
-			statusjeu.AfficheImage = "static/Image/pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
+			statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
 			message = "Lettre incorrecte."
 		} else {
 			message = "Bien joué !"
 		}
 	}
-	fmt.Print(statusjeu.AfficheImage)
+
 	// Vérifie si le jeu est terminé
 	if MotFini(statusjeu.MaskedWord) {
+		statusjeu.AfficheImage = "happy-hoovi.png"
 		message = "Bravo, vous avez gagné !"
 	} else if statusjeu.RemainingAttempts <= 0 {
 		message = "Vous avez perdu !"
@@ -123,7 +124,7 @@ func Hang(w http.ResponseWriter, r *http.Request) {
 
 func initializeGame() {
 	lutil = []string{}
-	statusjeu.Difficulte = "facile"
+	statusjeu.Difficulte = "difficile"
 	statusjeu.Word = choimot(statusjeu.Difficulte + ".txt")
 	statusjeu.MaskedWord = motcache(statusjeu.Word)
 	if statusjeu.Difficulte == "facile" {
