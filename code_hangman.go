@@ -103,23 +103,35 @@ func Hang(w http.ResponseWriter, r *http.Request) {
 	}
 	// Gère la logique du jeu
 	message := ""
-	if InTab(lutil, letter) {
-		message = "Lettre déjà utilisée."
-	} else {
-		lutil = append(lutil, letter)
-		trouver := false
-		for i := 0; i < len(statusjeu.Word); i++ {
-			if ToUpper(string(statusjeu.Word[i])) == letter {
-				statusjeu.MaskedWord[i] = letter
-				trouver = true
+	if len(letter) > 1 {
+		if ToUpper(statusjeu.Word) == letter {
+			for i := 0; i < len(statusjeu.Word); i++ {
+				statusjeu.MaskedWord[i] = ToUpper(string(statusjeu.Word[i]))
 			}
-		}
-		if !trouver {
-			statusjeu.RemainingAttempts--
-			statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
-			message = "Lettre incorrecte."
 		} else {
-			message = "Bien joué !"
+			statusjeu.RemainingAttempts -= 2
+			statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
+			message = "Mot incorrect."
+		}
+	} else {
+		if InTab(lutil, letter) {
+			message = "Lettre déjà utilisée."
+		} else {
+			lutil = append(lutil, letter)
+			trouver := false
+			for i := 0; i < len(statusjeu.Word); i++ {
+				if ToUpper(string(statusjeu.Word[i])) == letter {
+					statusjeu.MaskedWord[i] = letter
+					trouver = true
+				}
+			}
+			if !trouver {
+				statusjeu.RemainingAttempts--
+				statusjeu.AfficheImage = "pootis" + string(57-statusjeu.RemainingAttempts) + ".jpg"
+				message = "Lettre incorrecte."
+			} else {
+				message = "Bien joué !"
+			}
 		}
 	}
 
