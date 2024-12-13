@@ -33,6 +33,21 @@ body#P1_Index div.P1_gauche img{
     margin-top: 10px;
 }
 
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.jump {
+    animation: jump 0.5s ease-in-out;
+    animation-iteration-count: 2; /* 4 itérations pour 2 secondes */
+}
+
+
 body#P1_Index div.P1_droite img{
     display:grid;
     margin-left: 42%;
@@ -50,22 +65,71 @@ body#P1_Index div.P1_bouton{
     left: 43%;
     top: 80%;
 }
-div.instal div.steam a {
-    text-decoration:none
-}
-div.instal div.steam{
+
+div.popup{
     position: absolute;
     z-index: 1;
-    left: 40%;
+    left: 39%;
     top: 60%;
-    background: linear-gradient(to right, #ff7700, #ffa200);
-    font-size: 30px;
-    border-radius: 10px; /* Arrondir les coins */
-    box-shadow: 0 12px 12px rgba(0, 0, 0.4, 0.2); /* Ajouter une ombre */
-    padding: 10px;
 }
 
+#choix{
+    margin-top: 40px;
+    position: absolute;
+    left: 20%;
+    z-index: 1;
+}
 
+input[type="submit"] {
+    font-family: 'Cyberway Riders', sans-serif;
+    margin-top: 15px;
+    outline-style: none;
+    border: none;
+    display: block;
+    text-align: center;
+    background: linear-gradient(orange, white);
+    color: black;
+    text-decoration: none;
+    box-shadow: 0px 5px 0px #8c8c8c;
+    border-radius: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding: 5px 20px 5px 20px;
+    transition: ease-in-out 0.25s;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(white,orange );
+    scale: 1.03;
+}
+ 
+select {
+    margin-top: 15px;
+    outline-style: none;
+    border: none;
+    display: block;
+    background: linear-gradient(white,orange );
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px 20px 5px 20px;
+    transition: ease-in-out 0.25s;
+}
+
+.tits{
+    background-color: orange;
+}
+
+h2{
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    box-shadow: 10px 4px 5px #ff9900fe;
+    color: rgb(255, 228, 196);
+    z-index: 1;
+}
 /*--------------------------------------------------------------Page 2---------------------------------------------------------------------------*/
 #page2_jeuxpage{
     background-color: chocolate;
