@@ -9,42 +9,54 @@
     <title>HangmanWEB</title>
 </head>
 <header id="P1_header">
-    <img src="..\static\Image\Awesome-Tf2-Logo-png-951633038.png" width="1489px" height="200px">
+    <img class="slide" src="..\static\Image\Awesome-Tf2-Logo-png-951633038.png" width="1489px" height="200px">
 </header>
 <body id="P1_Index">
     
-    <div class="instal">
-        <div class="steam">
-            <i class='bx bxl-steam'></i>
-            <a href="https://store.steampowered.com/app/440/Team_Fortress_2/">Appuyez pour installer</a> 
-        </div>
-    </div>
+    
     <audio autoplay>
         <source src="..\static\music\TF2_song.mp3" type="audio/mpeg"> 
     </audio>
+
     <div class="P1_gauche">
 
-        <img src="..\static\Image\Scout_Full_Body.webp" height="230px" width="230px">
+        <img class="jumpable" src="..\static\Image\Scout_Full_Body.webp" height="230px" width="230px">
         <!-- <img src="..\static\Image\H.W.G.webp"height="230px" width="230px"> -->
         <!-- <img src="..\static\Image\Spinaltap.webp" height="230px" width="230px"> -->
-        <img src="..\static\Image\Sniper.jpg" height="230px" width="230px">
-        <img src="..\static\Image\Spy.webp" height="240px" width="120px">
+        <img class="jumpable" src="..\static\Image\Sniper.jpg" height="230px" width="230px">
+        <img class="jumpable" src="..\static\Image\Spy.webp" height="240px" width="120px">
 
     </div>
 
     <div class="P1_droite">
         <!-- <img src="..\static\Image\Blu_Scout.webp" height="230px" width="120px"> -->
-        <img src="..\static\Image\Blu_Heavy.webp" height="220px" width="160px">
-        <img src="..\static\Image\Blumedic.png" height="230px" width="200px">
-        <img src="..\static\Image\blu-sniper.png" height="230px" width="190px">
+        <img class="jumpable" src="..\static\Image\Blu_Heavy.webp" height="220px" width="160px">
+        <img class="jumpable" src="..\static\Image\Blumedic.png" height="230px" width="200px">
+        <img class="jumpable" src="..\static\Image\blu-sniper.png" height="230px" width="190px">
         <!-- <img src="..\static\Image\blueSPy.png" height="240px" width="200px"> -->
     </div>
 
-    <div class="P1_bouton">
+    <!-- <div class="P1_bouton">
         <a id="imageButton" href="jeux.html" onmouseover="changeImage()"><img src="../static/Image/play_button2_400.png" id="buttonImage"></a>
+    </div> -->
+
+    <h2>Selection de la difficulte</h2>
+
+    <div class="popup" id="jeu">
+        <!-- faut ensuite mettre sur écoute sur le backend sur /hangman avec la fonction http.hundlefunc() -->
+        <form action="/Hangman" method="post" onsubmit="return validateForm()">  
+            <select name="difficulty" id="difficultySelector">
+                <option class="tits" value="Error">--Choississez la difficulté--</option>
+                <option class="tits" value="Facile">Facile</option>
+                <option class="tits" value="Moyen">Moyen</option>
+                <option class="tits" value="Difficile">Difficile</option>
+            </select>
+        <input id="choix" type="image" href="jeux.html" onmouseover="changeImage()" src="../static/Image/play_button2_400.png" id="buttonImage">
+        </form>
     </div>
 </body>
 <footer id="P1_footer">
     
 </footer>
 </html>
+
