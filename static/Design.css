@@ -68,9 +68,10 @@ div.instal div.steam{
 
 /*--------------------------------------------------------------Page 2---------------------------------------------------------------------------*/
 #page2_jeuxpage{
-    background-color: chocolate;
-    margin: 0;
-    padding: 0;
+    background-image:url("Image/2fort-background.jpg") ;
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-size: cover;
 }
 
 .page2_navbar {
