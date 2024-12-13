@@ -1,26 +1,78 @@
 /* --------------------------------------------------------------------------ANIS_PAGE_D'ACCUEILLE------------------------------------------------------------------------------------ */
-#Index{
-    background-image: url('../static/Image/TF2-title.jpg');
+#P1_Index{
+    background-image:url("Image/tf2-background.jpg") ;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment:scroll;
     background-size: cover;
-
 }
-a.bouton{
-    display: flex;
-    text-align: center;
+
+header#P1_header{
+    /* background-color: #333; */
+    margin-bottom: 50px;
+    margin-left: 100px;
+}
+
+body#P1_Index div{
+    display: inline-block ;
+}
+
+body#P1_Index div.P1_gauche{
+    /* background-color: #ddd; */
+    width: 40%;
+    padding-right: 8%;
+    align-items: center ;
+}
+body#P1_Index div.P1_droite{
+    /* background-color:white ; */
+    padding-left: 8%;
+    width: 40%;
+}
+body#P1_Index div.P1_gauche img{
+    display:grid;
+    margin-left: 31%;
+    margin-top: 10px;
+}
+
+body#P1_Index div.P1_droite img{
+    display:grid;
     margin-left: 42%;
-    margin-top: 40%;
-    size: 4px;
-}
-/* ---------------------------------------------------------------------Constance_PAGE_DE_JEUX---------------------------------------------------------------------------------------- */
-#page_de_jeux {
-    background-color: chocolate;
-    margin: 0%;
-    padding: 0%;
+    margin-top: 10px;
 }
 
-/*nav bar */
+header#P1_header{
+    /* background-color: #333; */
+    margin-bottom: 50px;
+    margin-left: 100px;
+}
+body#P1_Index div.P1_bouton{
+    position: absolute;
+    z-index: 1;
+    left: 43%;
+    top: 80%;
+}
+div.instal div.steam a {
+    text-decoration:none
+}
+div.instal div.steam{
+    position: absolute;
+    z-index: 1;
+    left: 40%;
+    top: 60%;
+    background: linear-gradient(to right, #0077ff, #00ffff);
+    font-size: 30px;
+    border-radius: 10px; /* Arrondir les coins */
+    box-shadow: 0 12px 12px rgba(0, 0, 0.4, 0.2); /* Ajouter une ombre */
+    padding: 10px;
+}
+
+
+/*--------------------------------------------------------------Page 2---------------------------------------------------------------------------*/
+#page2_jeuxpage{
+    background-color: chocolate;
+    margin: 0;
+    padding: 0;
+}
+
 .page2_navbar {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
