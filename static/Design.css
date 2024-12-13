@@ -190,20 +190,21 @@ div.instal div.steam{
 
 /* Assignation des zones */
 #page2_section1 {
-    height: 470px;
+    height: 65vh;
     width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 #page2_section3 {
     display: flex;
     width: 550px;
+    height: 65vh;
 }
 
 #page2_section4 {
     width: 550px;
+    height: 65vh;
 }
 
 /*differente div */
@@ -229,12 +230,13 @@ div.instal div.steam{
     height: 200px;
     line-height: 1;
     font-size: 50px;
+    margin-top: 100px;
 }
 
 .textcenter {
     display: flex;
     flex-direction: column;
-    gap: 170px;
+    gap: 60px;
     margin: 50px auto;
 }
 
