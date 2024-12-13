@@ -72,13 +72,13 @@
                         {{ .MaskedWord }}
                     </div>
                     {{if .Message}}
-                    <p>{{.Message}}</p>
+                    <h3>{{.Message}}</h3>
                     {{end}}
                     {{if .GameLoose}}
-                    <p>Dommage... Vous n'avez pas réussi à trouver le mot caché qui était : {{.Word}}</p>
+                    <h3>Dommage... Vous n'avez pas réussi à trouver le mot caché qui était : {{.Word}}</h3>
                     {{end}}
                     {{if .GameWin}}
-                    <p>Super !!! Vous avez trouvez le mot caché qui était : {{.Word}}</p>
+                    <h3>Super !!! Vous avez trouvez le mot caché qui était : {{.Word}}</h3>
                     {{end}}
                     <div class="input-container">
                         <form method="POST" action = "/lettre/">
@@ -96,7 +96,11 @@
                 </div>
             </div>
             <div id="page2_section4" class="page2_box">
-                <br><img  src= ../static/Image/{{.ShowImage}}  alt="pootis" width="100%">            
+                {{if .GameWin}}
+                <br><img  src= ../static/Image/{{.ShowImage}}  alt="pootis" height="110%"> 
+                {{else}}
+                <br><img  src= ../static/Image/{{.ShowImage}}  alt="pootis" width="100%"> 
+                {{end}}
             </div> 
         </main>
         <!-- Pied de page -->
